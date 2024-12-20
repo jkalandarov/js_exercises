@@ -114,6 +114,18 @@ try {
  * */
 function redundant(str) {
   // Write your code here
+  return function(){
+    return str
+  }
+}
+
+try {
+  const f1 = redundant("apple")
+  console.log(f1());
+  
+} catch (err) {
+  console.log(err.message);
+  
 }
 
 module.exports = {
