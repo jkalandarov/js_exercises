@@ -9,7 +9,9 @@
  * isStringEmpty(); => throws error "text must be defined"
  */
 function isStringEmpty(text) {
-  // Your code here
+  if (text == null) throw new Error('text must be defined');
+
+  return text.trim().length === 0 || text.length === 0;
 }
 
 /**
@@ -23,7 +25,10 @@ function isStringEmpty(text) {
  * truncateString(''); => throws error "text must have at least one character"
  */
 function truncateString(text, numberOfCharacters) {
-  // Your code here
+  if (!numberOfCharacters) throw new Error('Please specify number of characters to extract');
+  if (text.length === 0) throw new Error('text must have at least one character');
+
+  return text.slice(0, numberOfCharacters)
 }
 
 /**
