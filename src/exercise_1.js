@@ -145,7 +145,7 @@ function formatPhoneNumber(phoneNumber) {
   return result;
 }
 try {
-  console.log(formatPhoneNumber(9309478729));
+  // console.log(formatPhoneNumber(9309478729));
 } catch (err) {
   console.log(err.message);
 }
@@ -186,7 +186,7 @@ function changeTextCase(text, caseName) {
   return result;
 }
 try {
-  console.log(changeTextCase("salom messi", "kebab"));
+  // console.log(changeTextCase("salom messi", "kebab"));
 } catch (err) {
   console.log(err.message);
 }
@@ -208,15 +208,14 @@ function replaceWordInText(text, word, replacement) {
   return text.split(word).join(replacement);
 }
 
-try{
-  const bigText = "Winnie-the-Pooh (also known as Edward Bear, Pooh Bear or simply Pooh) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Pooh first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.";
-  const replacedWord = 'Pooh';
-  const replacementWord = 'Puff';
-  
-  const result = replaceWordInText(bigText, replacedWord, replacementWord);
-  console.log(result); 
-}catch(err){
-  console.log(err.message)
+try {
+  // const bigText = "Winnie-the-Pooh (also known as Edward Bear, Pooh Bear or simply Pooh) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Pooh first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.";
+  // const replacedWord = 'Pooh';
+  // const replacementWord = 'Puff';
+  // const result = replaceWordInText(bigText, replacedWord, replacementWord);
+  // console.log(result);
+} catch (err) {
+  console.log(err.message);
 }
 /**
  * Write a function to extract price in number format from the text
@@ -229,6 +228,32 @@ try{
  */
 function extractPriceFromText(text) {
   // Your code here
+  let arr = text.split(" ");
+  if (text == undefined) {
+    throw new Error("Text should have at least three characters");
+  }
+
+  if (typeof text !== "string") {
+    throw new Error("Text should have at least three characters");
+  }
+
+  if (text.trim().length == 0) {
+    throw new Error("Text should have at least three characters");
+  }
+  if (!arr.includes("$")) {
+    throw new Error("No matching price was found");
+  }
+
+  let fillterArr = arr.filter((text) => (text.includes("$") ? text : ""));
+  console.log(fillterArr);
+
+  let result = fillterArr.join().slice(1);
+  return Number(result);
+}
+try {
+  console.log(extractPriceFromText("salom"));
+} catch (err) {
+  console.log(err.message);
 }
 
 module.exports = {
