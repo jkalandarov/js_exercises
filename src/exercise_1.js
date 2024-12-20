@@ -10,6 +10,15 @@
  */
 function isStringEmpty(text) {
   // Your code here
+  if(text ==undefined){
+    throw new Error("text must be defined");
+    
+  }
+  if (typeof text!=="string") {
+    throw new Error("text must be string");
+    
+  }
+  return text.trim().length===0
 }
 
 /**
