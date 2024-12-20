@@ -20,6 +20,13 @@ function isStringEmpty(text) {
   }
   return text.trim().length===0
 }
+try {
+  console.log(isStringEmpty(""));
+  console.log(isStringEmpty())
+  
+} catch (error) {
+  console.log(error.message);
+}
 
 /**
  * Write a function to truncate text
@@ -33,6 +40,26 @@ function isStringEmpty(text) {
  */
 function truncateString(text, numberOfCharacters) {
   // Your code here
+  if (text ==undefined) {
+    throw new Error("text must be defined");
+    
+  }
+  if(typeof text !=="string"){
+    throw new Error("text must be string");
+    
+  }
+  if(text.length ==0){
+    throw new Error("text must have at least one character");
+    
+  }
+  if (numberOfCharacters ==undefined) {
+    throw new Error("Please specify number of characters to extract");
+    
+  }
+  if (typeof numberOfCharacters !== 'number' || numberOfCharacters < 0) {
+    throw new Error("numberOfCharacters must be a positive number");
+  }
+  return text.slice(0,numberOfCharacters)
 }
 
 /**
