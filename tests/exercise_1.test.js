@@ -37,13 +37,13 @@ describe('Exercise @1', () => {
 
     it('truncateString(\'Hello world\'); => throws error "Please specify number of characters to extract"', () => {
       expect(() => {
-        truncateString();
+        truncateString("Hello World");
       }).to.throw('Please specify number of characters to extract');
     });
 
     it('truncateString(\'\'); => throws error "text must have at least one character"', () => {
       expect(() => {
-        truncateString();
+        truncateString('', 2);
       }).to.throw('text must have at least one character');
     });
   });
