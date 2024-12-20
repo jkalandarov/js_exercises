@@ -205,9 +205,19 @@ try {
  * 'Winnie-the-Puff (also known as Edward Bear, Puff Bear or simply Puff) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Puff first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.'
  */
 function replaceWordInText(text, word, replacement) {
-  // Your code here
+  return text.split(word).join(replacement);
 }
 
+try{
+  const bigText = "Winnie-the-Pooh (also known as Edward Bear, Pooh Bear or simply Pooh) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Pooh first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.";
+  const replacedWord = 'Pooh';
+  const replacementWord = 'Puff';
+  
+  const result = replaceWordInText(bigText, replacedWord, replacementWord);
+  console.log(result); 
+}catch(err){
+  console.log(err.message)
+}
 /**
  * Write a function to extract price in number format from the text
  * @param {String} text
