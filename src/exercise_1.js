@@ -1,5 +1,5 @@
 /**
- * Write a function to check if a string is empty 
+ * Write a function to check if a string is empty
  * @param {String} text
  * @returns {Boolean}
  * @example
@@ -7,32 +7,30 @@
  * isStringEmpty(''); => true
  * isStringEmpty('   '); => true
  * isStringEmpty(); => throws error "text must be defined"
- */
+ **/
 function isStringEmpty(text) {
   // Your code here
-  if(text ==undefined){
+  if (text == undefined) {
     throw new Error("text must be defined");
-    
   }
-  if (typeof text!=="string") {
+  if (typeof text !== "string") {
     throw new Error("text must be string");
-    
   }
-  return text.trim().length===0
+  return text.trim().length === 0;
 }
-try {
-  console.log(isStringEmpty(""));
-  console.log(isStringEmpty())
-  
-} catch (error) {
-  console.log(error.message);
-}
+// try {
+//   console.log(isStringEmpty(""));
+//   console.log(isStringEmpty())
+
+// } catch (error) {
+//   console.log(error.message);
+// }
 
 /**
  * Write a function to truncate text
- * @param {String} text 
+ * @param {String} text
  * @param {Number} numberOfCharacters
- * @returns {String} 
+ * @returns {String}
  * @example
  * truncateString('Hello World', 2); => 'He'
  * truncateString('Hello world'); => throws error "Please specify number of characters to extract"
@@ -40,31 +38,35 @@ try {
  */
 function truncateString(text, numberOfCharacters) {
   // Your code here
-  if (text ==undefined) {
+  if (text == undefined) {
     throw new Error("text must be defined");
-    
   }
-  if(typeof text !=="string"){
+  if (typeof text !== "string") {
     throw new Error("text must be string");
-    
   }
-  if(text.length ==0){
+  if (text.length == 0) {
     throw new Error("text must have at least one character");
-    
   }
-  if (numberOfCharacters ==undefined) {
+  if (numberOfCharacters == undefined) {
     throw new Error("Please specify number of characters to extract");
-    
   }
-  if (typeof numberOfCharacters !== 'number' || numberOfCharacters < 0) {
+  if (typeof numberOfCharacters !== "number" || numberOfCharacters < 0) {
     throw new Error("numberOfCharacters must be a positive number");
   }
-  return text.slice(0,numberOfCharacters)
+  return text.slice(0, numberOfCharacters);
 }
+// try {
+//   console.log(truncateString("Hello world",4))
+//   console.log(truncateString("Hello world",))
+
+// } catch (error) {
+//   console.log(error.message);
+
+// }
 
 /**
  * Write a function to create social media post hash tag
- * @param {String} text 
+ * @param {String} text
  * @returns {String}
  * @example
  * createHashTag('Hello World'); => '#helloWorld'
@@ -75,11 +77,37 @@ function truncateString(text, numberOfCharacters) {
  */
 function createHashTag(text) {
   // Your code here
+  if (text == undefined) {
+    throw new Error("Text should have at least three characters");
+  }
+
+  if (typeof text !== "string") {
+    throw new Error("Text should have at least three characters");
+  }
+  if (text.trim().length == 0) {
+    throw new Error("Text should have at least three characters");
+  }
+
+  let arr = text.split(" ");
+  let hashTag = "#";
+  let newStr = "";
+  for (let i = 0; i < arr.length; i++) {
+    newStr += arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  return (hashTag += newStr.charAt(0).toLowerCase() + newStr.slice(1));
 }
+
+// try {
+//   console.log(createHashTag("i love javascript"));
+//   console.log(createHashTag());
+//   console.log(createHashTag("      "));
+// } catch (error) {
+//   console.log(error.message);
+// }
 
 /**
  * Write a function to format phone number as '+998 99 777 66 55'
- * @param {Number} phoneNumber 
+ * @param {Number} phoneNumber
  * @returns {String}
  * @throws {Error} 'Phone number must be either 9 or 12 characters long'
  * @example
@@ -95,14 +123,14 @@ function formatPhoneNumber(phoneNumber) {
 
 /**
  * Write a function that transforms text to different cases
- * @param {String} text 
+ * @param {String} text
  * @param {'camel'|'kebab'|'snake'} caseName - 'camel', 'kebab', 'snake'
  * @returns {String}
  * @example
  * changeTextCase('Hello World', 'camel'); => 'helloWorld'
  * changeTextCase('Hello World', 'kebab'); => 'hello-world'
  * changeTextCase('Hello World', 'snake'); => 'hello_world'
- * 
+ *
  */
 function changeTextCase(text, caseName) {
   // Your code here
@@ -127,7 +155,7 @@ function replaceWordInText(text, word, replacement) {
 
 /**
  * Write a function to extract price in number format from the text
- * @param {String} text 
+ * @param {String} text
  * @returns {Number}
  * @example
  * extractPriceFromText('Apple price in market is $2.32 per kg now'); => 2.32
@@ -145,5 +173,5 @@ module.exports = {
   isStringEmpty,
   replaceWordInText,
   truncateString,
-  formatPhoneNumber
-}
+  formatPhoneNumber,
+};
