@@ -11,21 +11,19 @@
  * */
 function countMatchsticksInHouses(step) {
   // Write your code here
-  return step==0?0:5*step+1;
+  return step == 0 ? 0 : 5 * step + 1;
 }
 try {
   console.log(countMatchsticksInHouses(4));
-  
 } catch (err) {
   console.log(err.message);
-  
 }
 
- /* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
- /* Make a regexp to find time in the string: Breakfast at 09:00 in the room 123:456. */
- /* In this task there’s no need to check time correctness yet, so 25:99 can also be a valid result. */
- /* The regexp should not match 123:456. */
-const TIME_REGEX = /[a-z]+/g/* Write your regex here */
+/* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
+/* Make a regexp to find time in the string: Breakfast at 09:00 in the room 123:456. */
+/* In this task there’s no need to check time correctness yet, so 25:99 can also be a valid result. */
+/* The regexp should not match 123:456. */
+const TIME_REGEX = /[a-z]+/g; /* Write your regex here */
 
 /**
  * @param {String} text
@@ -42,11 +40,13 @@ const TIME_REGEX = /[a-z]+/g/* Write your regex here */
  * */
 function findSecretWord(text) {
   // Write your code here\
- return text.match(TIME_REGEX).join("")
-  
+  return text.match(TIME_REGEX).join("");
 }
-console.log(findSecretWord("UcUNFYGaFYFYGtNUH"));
-
+try {
+  console.log(findSecretWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment"));
+} catch (err) {
+  console.log(err);
+}
 
 /**
  * Create a method in the Person class which returns how another person's age compares.
@@ -79,9 +79,25 @@ class Person {
    * */
   compareAge(other) {
     // Write code here!
+    if (other.age > this.age) {
+      console.log(`${other.name} is older than me`);
+    } else if (other.age < this.age) {
+      console.log(`${other.name} is younger than me`);
+    } else if (other.age == this.age) {
+      console.log(`${other.name} is the same age as me`);
+    }
   }
 }
-
+try {
+  p1 = new Person("Samuel", 24);
+  p2 = new Person("Joel", 36);
+  p3 = new Person("Lily", 24);
+  p1.compareAge(p2);
+  p2.compareAge(p1);
+  p1.compareAge(p3);
+} catch (err) {
+  console.log(err.message);
+}
 /**
  * Write a function redundant that takes in a string `str` and returns a function that returns `str`.
  * @param {String} str
@@ -105,5 +121,5 @@ module.exports = {
   TIME_REGEX,
   findSecretWord,
   Person,
-  redundant
-}
+  redundant,
+};
