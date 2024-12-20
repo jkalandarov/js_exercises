@@ -54,12 +54,12 @@ describe('Exercise @1', () => {
     });
 
     it("createHashTag('i love javascript'); => '#iLoveJavascript'", () => {
-      expect(createHashTag('Hello World')).to.equal('#iLoveJavascript');
+      expect(createHashTag('i love javascript')).to.equal('#iLoveJavascript');
     });
 
     it("createHashTag(''); => throws error 'Text should have at least three characters'", () => {
       expect(() => {
-        createHashTag('');
+        createHashTag('te');
       }).to.throw('Text should have at least three characters');
     });
 

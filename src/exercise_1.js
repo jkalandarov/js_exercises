@@ -43,7 +43,15 @@ function truncateString(text, numberOfCharacters) {
  * createHashTag('   '); => throws error "Text should have at least three characters"
  */
 function createHashTag(text) {
-  // Your code here
+  if (text == null || text.trim().length === 0 || text.length < 3)
+    throw new Error('Text should have at least three characters');
+
+  const words = text.split(' ');
+  const firstWord = words[0].toLowerCase();
+  const otherWords = words.slice(1).map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  ).join('');
+  return '#' + firstWord + otherWords;
 }
 
 /**
