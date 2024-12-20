@@ -119,6 +119,38 @@ function createHashTag(text) {
  */
 function formatPhoneNumber(phoneNumber) {
   // Your code here
+  let phoneNumberString = phoneNumber.toString();
+  let result = "";
+  if (phoneNumberString.length > 12 || phoneNumberString.length < 9) {
+    throw new Error("Phone number must be either 9 or 12 characters long");
+  }
+  if (phoneNumber == undefined || typeof phoneNumber != "number") {
+    throw new Error("Phone number must be either 9 or 12 characters long");
+  }
+
+  if (phoneNumberString.length == 12) {
+    result += `+${phoneNumberString.slice(0, 3)} ${phoneNumberString.slice(
+      3,
+      5
+    )} ${phoneNumberString.slice(5, 8)} ${phoneNumberString.slice(
+      8,
+      10
+    )} ${phoneNumberString.slice(10, 12)}`;
+  } else if (phoneNumberString.length == 9) {
+    result += `+998 ${phoneNumberString.slice(0, 2)} ${phoneNumberString.slice(
+      2,
+      5
+    )} ${phoneNumberString.slice(5, 7)} ${phoneNumberString.slice(
+      7,
+      9
+    )} `;
+  }
+  return result;
+}
+try {
+  console.log(formatPhoneNumber(930947879));
+} catch (err) {
+  console.log(err.message);
 }
 
 /**
