@@ -121,7 +121,7 @@ function formatPhoneNumber(phoneNumber) {
   // Your code here
   let phoneNumberString = phoneNumber.toString();
   let result = "";
-  if (phoneNumberString.length > 12 || phoneNumberString.length < 9) {
+  if (phoneNumberString.length != 12 || phoneNumberString.length != 9) {
     throw new Error("Phone number must be either 9 or 12 characters long");
   }
   if (phoneNumber == undefined || typeof phoneNumber != "number") {
@@ -148,7 +148,7 @@ function formatPhoneNumber(phoneNumber) {
   return result;
 }
 try {
-  console.log(formatPhoneNumber(930947879));
+  console.log(formatPhoneNumber(9309478729));
 } catch (err) {
   console.log(err.message);
 }
