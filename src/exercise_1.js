@@ -140,10 +140,7 @@ function formatPhoneNumber(phoneNumber) {
     result += `+998 ${phoneNumberString.slice(0, 2)} ${phoneNumberString.slice(
       2,
       5
-    )} ${phoneNumberString.slice(5, 7)} ${phoneNumberString.slice(
-      7,
-      9
-    )} `;
+    )} ${phoneNumberString.slice(5, 7)} ${phoneNumberString.slice(7, 9)} `;
   }
   return result;
 }
@@ -166,6 +163,32 @@ try {
  */
 function changeTextCase(text, caseName) {
   // Your code here
+  let result = "";
+  if (caseName == "camel") {
+    let strArr = text.split(" ");
+    let newStr = "";
+    if (caseName == undefined) {
+      throw new Error("not undifinded case name");
+    }
+    if (text == undefined) {
+      throw new Error("not undifinded text");
+    }
+    for (let i = 0; i < strArr.length; i++) {
+      newStr += strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1);
+    }
+    result = newStr.charAt(0).toLowerCase() + newStr.slice(1);
+  } else if (caseName == "kebab") {
+    result = text.split(" ").join("-");
+  } else if (caseName == "snake") {
+    result = text.split(" ").join("_");
+  }
+
+  return result;
+}
+try {
+  console.log(changeTextCase("salom messi", "kebab"));
+} catch (err) {
+  console.log(err.message);
 }
 
 /**
