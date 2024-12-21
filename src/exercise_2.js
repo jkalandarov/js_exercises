@@ -10,7 +10,10 @@
  * See image here: https://edabit-challenges.s3.amazonaws.com/matchstick_houses.png
  * */
 function countMatchsticksInHouses(step) {
-  // Write your code here
+  if (step === 0) {
+    return 0;
+  }
+  return 6 + (step - 1) * 5;
 }
 
  /* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
@@ -33,7 +36,8 @@ const TIME_REGEX = /[]//* Write your regex here */
  * findSecretWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment") ➞ "embezzlement"
  * */
 function findSecretWord(text) {
-  // Write your code here
+  const matches = text.match(/[a-z]/g);
+  return matches ? matches.join('') : '';
 }
 
 /**
@@ -66,7 +70,13 @@ class Person {
    * p1.compareAge(p3) ➞ "Lily is the same age as me."
    * */
   compareAge(other) {
-    // Write code here!
+    if (other.age > this.age) {
+      return `${other.name} is older than me.`;
+    } else if (other.age < this.age) {
+      return `${other.name} is younger than me.`;
+    } else {
+      return `${other.name} is the same age as me.`;
+    }
   }
 }
 
@@ -85,7 +95,9 @@ class Person {
  * f3() ➞ ""
  * */
 function redundant(str) {
-  // Write your code here
+  return function() {
+    return str;
+  };
 }
 
 module.exports = {
