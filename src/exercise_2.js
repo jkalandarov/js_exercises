@@ -13,11 +13,6 @@ function countMatchsticksInHouses(step) {
   // Write your code here
   return step == 0 ? 0 : 5 * step + 1;
 }
-try {
-  console.log(countMatchsticksInHouses(4));
-} catch (err) {
-  console.log(err.message);
-}
 
 /* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
 /* Make a regexp to find time in the string: Breakfast at 09:00 in the room 123:456. */
@@ -41,11 +36,6 @@ const TIME_REGEX = /[a-z]+/g; /* Write your regex here */
 function findSecretWord(text) {
   // Write your code here\
   return text.match(TIME_REGEX).join("");
-}
-try {
-  console.log(findSecretWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment"));
-} catch (err) {
-  console.log(err);
 }
 
 /**
@@ -88,16 +78,7 @@ class Person {
     }
   }
 }
-try {
-  p1 = new Person("Samuel", 24);
-  p2 = new Person("Joel", 36);
-  p3 = new Person("Lily", 24);
-  p1.compareAge(p2);
-  p2.compareAge(p1);
-  p1.compareAge(p3);
-} catch (err) {
-  console.log(err.message);
-}
+
 /**
  * Write a function redundant that takes in a string `str` and returns a function that returns `str`.
  * @param {String} str
@@ -114,18 +95,9 @@ try {
  * */
 function redundant(str) {
   // Write your code here
-  return function(){
-    return str
-  }
-}
-
-try {
-  const f1 = redundant("apple")
-  console.log(f1());
-  
-} catch (err) {
-  console.log(err.message);
-  
+  return function () {
+    return str;
+  };
 }
 
 module.exports = {

@@ -18,13 +18,6 @@ function isStringEmpty(text) {
   }
   return text.trim().length === 0;
 }
-try {
-  console.log(isStringEmpty(""));
-  console.log(isStringEmpty())
-
-} catch (error) {
-  console.log(error.message);
-}
 
 /**
  * Write a function to truncate text
@@ -54,14 +47,6 @@ function truncateString(text, numberOfCharacters) {
     throw new Error("numberOfCharacters must be a positive number");
   }
   return text.slice(0, numberOfCharacters);
-}
-try {
-  console.log(truncateString("Hello world",4))
-  console.log(truncateString("Hello world",))
-
-} catch (error) {
-  console.log(error.message);
-
 }
 
 /**
@@ -95,14 +80,6 @@ function createHashTag(text) {
     newStr += arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
   }
   return (hashTag += newStr.charAt(0).toLowerCase() + newStr.slice(1));
-}
-
-try {
-  console.log(createHashTag("i love javascript"));
-  console.log(createHashTag());
-  console.log(createHashTag("      "));
-} catch (error) {
-  console.log(error.message);
 }
 
 /**
@@ -144,11 +121,6 @@ function formatPhoneNumber(phoneNumber) {
   }
   return result;
 }
-try {
-  console.log(formatPhoneNumber(9309478729));
-} catch (err) {
-  console.log(err.message);
-}
 
 /**
  * Write a function that transforms text to different cases
@@ -185,11 +157,6 @@ function changeTextCase(text, caseName) {
 
   return result;
 }
-try {
-  console.log(changeTextCase("salom messi", "kebab"));
-} catch (err) {
-  console.log(err.message);
-}
 
 /**
  * Write a function to replace a given word in the text with the replacement word
@@ -208,15 +175,6 @@ function replaceWordInText(text, word, replacement) {
   return text.split(word).join(replacement);
 }
 
-try {
-  const bigText = "Winnie-the-Pooh (also known as Edward Bear, Pooh Bear or simply Pooh) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Pooh first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.";
-  const replacedWord = 'Pooh';
-  const replacementWord = 'Puff';
-  const result = replaceWordInText(bigText, replacedWord, replacementWord);
-  console.log(result);
-} catch (err) {
-  console.log(err.message);
-}
 /**
  * Write a function to extract price in number format from the text
  * @param {String} text
@@ -249,11 +207,6 @@ function extractPriceFromText(text) {
 
   let result = fillterArr.join().slice(1);
   return Number(result);
-}
-try {
-  console.log(extractPriceFromText("salom"));
-} catch (err) {
-  console.log(err.message);
 }
 
 module.exports = {
