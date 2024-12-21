@@ -18,13 +18,13 @@ function isStringEmpty(text) {
   }
   return text.trim().length === 0;
 }
-// try {
-//   console.log(isStringEmpty(""));
-//   console.log(isStringEmpty())
+try {
+  console.log(isStringEmpty(""));
+  console.log(isStringEmpty())
 
-// } catch (error) {
-//   console.log(error.message);
-// }
+} catch (error) {
+  console.log(error.message);
+}
 
 /**
  * Write a function to truncate text
@@ -55,14 +55,14 @@ function truncateString(text, numberOfCharacters) {
   }
   return text.slice(0, numberOfCharacters);
 }
-// try {
-//   console.log(truncateString("Hello world",4))
-//   console.log(truncateString("Hello world",))
+try {
+  console.log(truncateString("Hello world",4))
+  console.log(truncateString("Hello world",))
 
-// } catch (error) {
-//   console.log(error.message);
+} catch (error) {
+  console.log(error.message);
 
-// }
+}
 
 /**
  * Write a function to create social media post hash tag
@@ -97,13 +97,13 @@ function createHashTag(text) {
   return (hashTag += newStr.charAt(0).toLowerCase() + newStr.slice(1));
 }
 
-// try {
-//   console.log(createHashTag("i love javascript"));
-//   console.log(createHashTag());
-//   console.log(createHashTag("      "));
-// } catch (error) {
-//   console.log(error.message);
-// }
+try {
+  console.log(createHashTag("i love javascript"));
+  console.log(createHashTag());
+  console.log(createHashTag("      "));
+} catch (error) {
+  console.log(error.message);
+}
 
 /**
  * Write a function to format phone number as '+998 99 777 66 55'
@@ -145,7 +145,7 @@ function formatPhoneNumber(phoneNumber) {
   return result;
 }
 try {
-  // console.log(formatPhoneNumber(9309478729));
+  console.log(formatPhoneNumber(9309478729));
 } catch (err) {
   console.log(err.message);
 }
@@ -186,7 +186,7 @@ function changeTextCase(text, caseName) {
   return result;
 }
 try {
-  // console.log(changeTextCase("salom messi", "kebab"));
+  console.log(changeTextCase("salom messi", "kebab"));
 } catch (err) {
   console.log(err.message);
 }
@@ -209,11 +209,11 @@ function replaceWordInText(text, word, replacement) {
 }
 
 try {
-  // const bigText = "Winnie-the-Pooh (also known as Edward Bear, Pooh Bear or simply Pooh) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Pooh first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.";
-  // const replacedWord = 'Pooh';
-  // const replacementWord = 'Puff';
-  // const result = replaceWordInText(bigText, replacedWord, replacementWord);
-  // console.log(result);
+  const bigText = "Winnie-the-Pooh (also known as Edward Bear, Pooh Bear or simply Pooh) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Pooh first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.";
+  const replacedWord = 'Pooh';
+  const replacementWord = 'Puff';
+  const result = replaceWordInText(bigText, replacedWord, replacementWord);
+  console.log(result);
 } catch (err) {
   console.log(err.message);
 }
