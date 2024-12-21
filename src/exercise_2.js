@@ -10,14 +10,20 @@
  * See image here: https://edabit-challenges.s3.amazonaws.com/matchstick_houses.png
  * */
 function countMatchsticksInHouses(step) {
-  // Write your code here
+  if (step === 0) {
+    return 0;
+  }
+  if (!step || step < 0 || step % 1 !== 0) {
+    throw new Error('step must be a positive integer');
+  }
+  return 6 + 5 * (step - 1);
 }
 
- /* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
- /* Make a regexp to find time in the string: Breakfast at 09:00 in the room 123:456. */
- /* In this task there’s no need to check time correctness yet, so 25:99 can also be a valid result. */
- /* The regexp should not match 123:456. */
-const TIME_REGEX = /[]//* Write your regex here */
+/* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
+/* Make a regexp to find time in the string: Breakfast at 09:00 in the room 123:456. */
+/* In this task there’s no need to check time correctness yet, so 25:99 can also be a valid result. */
+/* The regexp should not match 123:456. */
+const TIME_REGEX = /\d{2}:\d{2}/;
 
 /**
  * @param {String} text
@@ -33,7 +39,11 @@ const TIME_REGEX = /[]//* Write your regex here */
  * findSecretWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment") ➞ "embezzlement"
  * */
 function findSecretWord(text) {
-  // Write your code here
+  if (text === undefined) {
+    throw new Error('text must be defined');
+  }
+  const match = text.match(/[a-z]+/g);
+  return !match ? '' : match.join('');
 }
 
 /**
@@ -66,7 +76,14 @@ class Person {
    * p1.compareAge(p3) ➞ "Lily is the same age as me."
    * */
   compareAge(other) {
-    // Write code here!
+    if (!other || !other.name || !other.age) {
+      throw new Error('other must have name and age');
+    }
+    const diff = this.age - other.age;
+    if (diff === 0) {
+      return `${other.name} is the same age as me.`;
+    }
+    return `${other.name} is ${diff < 0 ? 'older' : 'younger'} than me.`;
   }
 }
 
@@ -85,7 +102,7 @@ class Person {
  * f3() ➞ ""
  * */
 function redundant(str) {
-  // Write your code here
+  return () => str;
 }
 
 module.exports = {
